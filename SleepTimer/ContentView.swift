@@ -10,29 +10,23 @@ import SwiftUI
 enum PowerOptions: String, CaseIterable, Identifiable {
     case shutdown = "Shutdown"
     case sleep = "Sleep"
-
+    
     var id: String { self.rawValue }
 }
 
 struct ContentView: View {
     @State private var runAt = Date()
-    @State private var runAfter: Date = {
-           var calendar = Calendar.current
-           var components = DateComponents()
-           components.hour = 0
-           components.minute = 0
-           return calendar.date(from: components) ?? Date()
-       }()
+    @State private var runAfter = Calendar.current.startOfDay(for: Date())
     @State private var selectedOption = PowerOptions.shutdown
     @State private var isShowingAlert = false
-    @State private var changeSource = "";
 
-    
     var body: some View {
         VStack {
             HStack {
-                Text("Sleep Timer").font(.title)
+                Text("Sleep Timer")
+                    .font(.title)
             }.padding()
+            
             HStack {
                 Text("Run At:")
                 Spacer()
@@ -40,15 +34,10 @@ struct ContentView: View {
                     .datePickerStyle(.automatic)
                     .labelsHidden()
                     .onChange(of: runAt) {
-                        if(changeSource == "runAfter") {
-                            return
-                        }
                         calculateRunAfter()
-                        changeSource = "";
                     }
             }.padding(.horizontal)
-    
-            
+
             HStack {
                 Text("Run After:")
                 Spacer()
@@ -56,36 +45,32 @@ struct ContentView: View {
                     .datePickerStyle(.automatic)
                     .labelsHidden()
                     .onChange(of: runAfter) {
-                        if(changeSource == "runAt") {
-                            return
-                        }
                         calculateRunAt()
-                        changeSource = "";
                     }
             }.padding(.horizontal)
-            
-            VStack(alignment: .leading){
+
+            VStack(alignment: .leading) {
                 Text("Behaviour:")
                 Picker("Power Option", selection: $selectedOption) {
                     ForEach(PowerOptions.allCases) { option in
-                        Text(option.rawValue).tag(option)
+                        Text(option.rawValue)
+                            .tag(option)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .buttonStyle(.borderedProminent)
                 .tint(.blue)
                 .labelsHidden()
-                
             }.padding(.horizontal)
-            
+
             HStack {
                 Button("Set Timer") {
-                    print("Button tapped!")
+                    setTimer()
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.blue)
-                
-                Button("Qiut") {
+
+                Button("Quit") {
                     isShowingAlert = true
                 }
                 .alert(isPresented: $isShowingAlert) {
@@ -104,47 +89,32 @@ struct ContentView: View {
     }
     
     func calculateRunAfter() {
-        let currentDate = Date();
+        let currentDate = Date()
         let timeIntervalInSeconds = currentDate.timeIntervalSince(runAt)
-        let timeInMinutes = Int(ceil((timeIntervalInSeconds / 60.0) * -1.0));
-            
-        print(timeInMinutes);
+        let timeInMinutes = Int(ceil((timeIntervalInSeconds / 60.0) * -1.0))
         
-        let zero: Date = {
-            let calendar = Calendar.current
-            var components = DateComponents()
-            components.hour = 0
-            components.minute = 0
-            return calendar.date(from: components) ?? Date()
-        }()
-        
-        let calendar = Calendar.current
-        changeSource = "runAt"
-        runAfter = calendar.date(byAdding: .minute, value: Int(timeInMinutes), to: zero) ?? runAt
+        let zero = Calendar.current.startOfDay(for: Date())
+        runAfter = Calendar.current.date(byAdding: .minute, value: timeInMinutes, to: zero) ?? runAt
     }
-        
+    
     func calculateRunAt() {
-        let currentDate: Date = {
-            let calendar = Calendar.current
-            var components = DateComponents()
-            components.hour = 0
-            components.minute = 0
-            return calendar.date(from: components) ?? Date()
-        }()
+        let currentDate = Calendar.current.startOfDay(for: Date())
         let timeIntervalInSeconds = currentDate.timeIntervalSince(runAfter)
-        let timeInMinutes = (timeIntervalInSeconds / 60.0) * -1.0;
-        
-        
-        let calendar = Calendar.current
-        changeSource = "runAfter"
-        runAt = calendar.date(byAdding: .minute, value: Int(timeInMinutes), to: Date()) ?? runAfter
+        let timeInMinutes = (timeIntervalInSeconds / 60.0) * -1.0
+
+        runAt = Calendar.current.date(byAdding: .minute, value: Int(timeInMinutes), to: Date()) ?? runAfter
     }
     
     func setTimer() {
-        
+        // Implement your logic for setting the timer here
     }
 }
 
-#Preview {
-    ContentView()
+#if DEBUG
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
+#endif
+
