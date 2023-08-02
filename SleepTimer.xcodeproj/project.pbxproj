@@ -11,6 +11,9 @@
 		4046650A2A793D140057C2C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404665092A793D140057C2C7 /* ContentView.swift */; };
 		4046650C2A793D160057C2C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4046650B2A793D160057C2C7 /* Assets.xcassets */; };
 		4046650F2A793D160057C2C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4046650E2A793D160057C2C7 /* Preview Assets.xcassets */; };
+		404665182A79451E0057C2C7 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404665172A79451E0057C2C7 /* ScriptingBridge.framework */; };
+		4046651A2A79453B0057C2C7 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404665192A79453B0057C2C7 /* SleepManager.swift */; };
+		4046651D2A796F780057C2C7 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046651C2A796F780057C2C7 /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		4046650B2A793D160057C2C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4046650E2A793D160057C2C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		404665102A793D160057C2C7 /* SleepTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepTimer.entitlements; sourceTree = "<group>"; };
+		404665172A79451E0057C2C7 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		404665192A79453B0057C2C7 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
+		4046651C2A796F780057C2C7 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404665182A79451E0057C2C7 /* ScriptingBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +45,7 @@
 			children = (
 				404665062A793D140057C2C7 /* SleepTimer */,
 				404665052A793D140057C2C7 /* Products */,
+				404665162A79451E0057C2C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,11 +60,13 @@
 		404665062A793D140057C2C7 /* SleepTimer */ = {
 			isa = PBXGroup;
 			children = (
+				4046651B2A796F5B0057C2C7 /* View */,
 				404665072A793D140057C2C7 /* SleepTimerApp.swift */,
 				404665092A793D140057C2C7 /* ContentView.swift */,
 				4046650B2A793D160057C2C7 /* Assets.xcassets */,
 				404665102A793D160057C2C7 /* SleepTimer.entitlements */,
 				4046650D2A793D160057C2C7 /* Preview Content */,
+				404665192A79453B0057C2C7 /* SleepManager.swift */,
 			);
 			path = SleepTimer;
 			sourceTree = "<group>";
@@ -67,6 +77,22 @@
 				4046650E2A793D160057C2C7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		404665162A79451E0057C2C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				404665172A79451E0057C2C7 /* ScriptingBridge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4046651B2A796F5B0057C2C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4046651C2A796F780057C2C7 /* CircularProgressView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4046650A2A793D140057C2C7 /* ContentView.swift in Sources */,
+				4046651A2A79453B0057C2C7 /* SleepManager.swift in Sources */,
+				4046651D2A796F780057C2C7 /* CircularProgressView.swift in Sources */,
 				404665082A793D140057C2C7 /* SleepTimerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +307,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,6 +335,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
