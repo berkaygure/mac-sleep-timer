@@ -4,6 +4,6 @@
 
 Screenshots 📸
 
-![Idle](assets/SleepTimer.ng)
+![Idle](assets/SleepTimer.png)
 ![TimerSet](assets/SleepCountdown.png)
 
