@@ -30,7 +30,6 @@ struct CircularProgressView: View {
             
             Text(text)
                 .font(.title2)
-                .foregroundColor(.black)
                 .bold()
                 .frame(width: size, height: size)
         }
