@@ -27,9 +27,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let statusButton = statusItem.button {
-            statusButton.image = NSImage(systemSymbolName: "chart.line.uptrend.xyaxis.circle", accessibilityDescription: "Chart Line")
+            statusButton.image = NSImage(systemSymbolName: "clock.circle", accessibilityDescription: "Sleep Timer")
             statusButton.action = #selector(togglePopover)
-            statusButton.alternateImage = NSImage(systemSymbolName: "chart.line.uptrend.xyaxis.circle", accessibilityDescription: "Chart Line")
+            statusButton.alternateImage = NSImage(systemSymbolName: "clock.circle", accessibilityDescription: "Sleep Timer")
         }
         
         self.popover = NSPopover()
