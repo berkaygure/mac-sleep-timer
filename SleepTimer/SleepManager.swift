@@ -1,13 +1,23 @@
+import SwiftUI
 import Foundation
-import ScriptingBridge
 
-@objc protocol SystemEventsApplication {
-    @objc optional func sleep()
-}
 
 class SleepManager {
     static func putMacToSleep() {
-        let systemEvents = SBApplication(bundleIdentifier: "com.apple.systemevents") as! SystemEventsApplication
-        systemEvents.sleep?()
+        let sleepScript = """
+                tell application "System Events" to sleep
+            """
+            
+        DispatchQueue.global(qos: .background).async {
+            var error: NSDictionary?
+            if let scriptObject = NSAppleScript(source: sleepScript) {
+                scriptObject.executeAndReturnError(&error)
+                if let error = error {
+                    print("Error executing AppleScript: \(error)")
+                }
+            } else {
+                print("Error creating AppleScript object.")
+            }
+        }
     }
 }

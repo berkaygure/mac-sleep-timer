@@ -11,9 +11,9 @@
 		4046650A2A793D140057C2C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404665092A793D140057C2C7 /* ContentView.swift */; };
 		4046650C2A793D160057C2C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4046650B2A793D160057C2C7 /* Assets.xcassets */; };
 		4046650F2A793D160057C2C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4046650E2A793D160057C2C7 /* Preview Assets.xcassets */; };
-		404665182A79451E0057C2C7 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404665172A79451E0057C2C7 /* ScriptingBridge.framework */; };
 		4046651A2A79453B0057C2C7 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404665192A79453B0057C2C7 /* SleepManager.swift */; };
 		4046651D2A796F780057C2C7 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046651C2A796F780057C2C7 /* CircularProgressView.swift */; };
+		409684D32A79F94F008EE05C /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409684D22A79F94F008EE05C /* CountdownView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +26,7 @@
 		404665172A79451E0057C2C7 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		404665192A79453B0057C2C7 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		4046651C2A796F780057C2C7 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		409684D22A79F94F008EE05C /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +34,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				404665182A79451E0057C2C7 /* ScriptingBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				4046651C2A796F780057C2C7 /* CircularProgressView.swift */,
+				409684D22A79F94F008EE05C /* CountdownView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4046650A2A793D140057C2C7 /* ContentView.swift in Sources */,
+				409684D32A79F94F008EE05C /* CountdownView.swift in Sources */,
 				4046651A2A79453B0057C2C7 /* SleepManager.swift in Sources */,
 				4046651D2A796F780057C2C7 /* CircularProgressView.swift in Sources */,
 				404665082A793D140057C2C7 /* SleepTimerApp.swift in Sources */,
@@ -308,6 +310,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs your permission to put the display to sleep";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -336,6 +339,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app needs your permission to put the display to sleep";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
